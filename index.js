@@ -55,6 +55,19 @@ function makeSound(key) {
    }
 }
 
+function hideStarterNote() {
+  const note = document.querySelector("#starter-note");
+  if (note) {
+    note.style.transition = "opacity 0.5s ease";
+    note.style.opacity = "0";
+    setTimeout(() => note.remove(), 500);
+  }
+}
+
+// Hide note on key press or click anywhere
+document.addEventListener("keydown", hideStarterNote, { once: true });
+document.addEventListener("click", hideStarterNote, { once: true });
+
 function buttonAnimation(currentKey) {
   var activeButton= document.querySelector("."+currentKey);
   activeButton.classList.add("pressed");
