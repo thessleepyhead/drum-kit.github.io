@@ -1,24 +1,68 @@
 body {
   text-align: center;
   background-color: #00203FFF;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 h1 {
   font-size: 5rem;
-  color:rgb(152, 240, 200);
+  color: rgb(152, 240, 200);
   font-family: "Arvo", cursive;
   text-shadow: 3px 0 #d24444;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
 
+p {
+  color: rgb(152, 240, 200);
+  font-family: sans-serif;
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
 footer {
   color: #DBEDF3;
   font-family: sans-serif;
+  padding-bottom: 20px;
 } 
 
+.set {
+  margin: 20px auto; /* Replaced 10% with a fixed 20px margin */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.drum { 
+  outline: none;
+  border: 5px solid #6fcabb;
+  font-size: 5rem;
+  font-family: 'Arvo', cursive;
+  line-height: 150px; /* Vertically centers the text over the image */
+  font-weight: 900;
+  color: rgb(73, 18, 18);
+  text-shadow: 3px 0 #fb4c4cc2;
+  border-radius: 15px;
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  margin: 10px;
+  background-color: #fff;
+  background-size: cover; /* Ensures drum images fill the button properly */
+  background-position: center;
+  cursor: pointer;
+}
 
 .w {
-background-image: url("images/tom1.png");
+  background-image: url("images/tom1.png");
 }
 
 .a {
@@ -45,10 +89,6 @@ background-image: url("images/tom1.png");
   background-image: url("images/snare.png");
 }
 
-.set {
-  margin: 10% auto;
-}
-
 .game-over {
   background-color: red;
   opacity: 0.8;
@@ -62,22 +102,44 @@ background-image: url("images/tom1.png");
 .red {
   color: red;
 }
+.controls {
+  margin: 15px auto;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
 
-.drum { 
+.control-btn {
+  font-family: 'Arvo', sans-serif;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: none;
+  background-color: #6fcabb;
+  color: #00203FFF;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
 
-  outline: none;
-  border: 5px solid #6fcabb;
-  font-size: 5rem;
-  font-family: 'Arvo', cursive;
-  line-height: 2;
-  font-weight: 900;
-  color: rgb(73, 18, 18);
-  text-shadow: 3px 0 #fb4c4cc2;
-  border-radius: 15px;
-  display: inline-block;
-  width: 150px;
-  height: 150px;
-  text-align: center;
-  margin: 10px;
-  background-color: #fff;
+.control-btn:hover:not(:disabled) {
+  transform: scale(1.05);
+  background-color: #98f0c8;
+}
+
+.control-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Pulsing effect when recording */
+.recording {
+  background-color: #ff4d4d !important;
+  color: white !important;
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
 }
